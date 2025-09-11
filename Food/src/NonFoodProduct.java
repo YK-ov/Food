@@ -71,7 +71,6 @@ public class NonFoodProduct extends Product{
         for (int i = 0; i < prices.length; i++) {
             if (ultimateRightRange) {
                 if (startMonth == month && startYear == year) {
-
                     return prices[i];
                 }
                 else {

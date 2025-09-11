@@ -1,4 +1,5 @@
 import java.nio.file.Path;
+import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args){
@@ -17,12 +18,14 @@ public class Main {
         System.out.println("debugging foodProduct");
 
         Path beetRootFile = Path.of("src/data/food/buraki.csv");
-        FoodProduct.fromCsv(beetRootFile);
+        //FoodProduct.fromCsv(beetRootFile);
 
-        //FoodProduct beetRoot = FoodProduct.fromCsv(beetRootFile);
-        //System.out.println(beetRoot);
-
-
+        FoodProduct beetRoot = FoodProduct.fromCsv(beetRootFile);
+        //beetRoot.getPriceMap().forEach((key, value) -> System.out.println(key + " : " + Arrays.toString(value)));
+        double toShow = beetRoot.getPrice(2011,1, "ŚLĄSKIE");
+        System.out.println(toShow + " new price");
+        double toShowAverage = beetRoot.getPrice(2010, 1);
+        System.out.println(toShowAverage + " new price average");
     }
 
 
