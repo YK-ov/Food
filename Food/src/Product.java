@@ -47,8 +47,30 @@ public abstract class Product {
         }
     }
 
-    public static List<Product> getProducts() {
-        return products;
+    public static Product getProducts(String prefix) throws AmbigiousProductException, IndexOutOfBoundsException {
+        List<String> resultList = new ArrayList<>();
+
+            for (int i = 0; i < products.size(); i++) {
+                if (products.get(i).getName().startsWith(prefix)) {
+                    resultList.add(products.get(i).getName());
+                }
+            }
+
+            if (resultList.isEmpty()) {
+                throw new IndexOutOfBoundsException("No such product has found in the list");
+            }
+
+            if(resultList.size() == 1) {
+                return products.getFirst();
+            }
+
+            else  {
+                AmbigiousProductException ambigiousProductException = new AmbigiousProductException(resultList);
+                ambigiousProductException.printStackTrace();
+
+                throw ambigiousProductException;
+            }
+
     }
 
     @Override

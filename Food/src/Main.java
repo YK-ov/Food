@@ -25,7 +25,7 @@ public class Main {
         //beetRoot.getPriceMap().forEach((key, value) -> System.out.println(key + " : " + Arrays.toString(value)));
         double toShow = beetRoot.getPrice(2011,1, "ŚLĄSKIE");
         System.out.println(toShow + " new price");
-        double toShowAverage = beetRoot.getPrice(2022, 3);
+        double toShowAverage = beetRoot.getPrice(2011, 1);
         System.out.println(toShowAverage + " new price average");
 
         Path foodDirectory = Path.of("src/data/food");
@@ -33,8 +33,16 @@ public class Main {
 
         Product.addProducts(FoodProduct::fromCsv, foodDirectory);
         Product.addProducts(NonFoodProduct::fromCsv, nonFoodDirectory);
-        Product.getProducts().forEach(System.out::println);
+        System.out.println(Product.getProducts("Bu"));
+        //System.out.println(Product.getProducts("Abc"));
+        //System.out.println(Product.getProducts("Ja"));
 
+        Cart cart = new Cart();
+        cart.addProduct(gasoline, 1);
+        cart.addProduct(beetRoot, 1);
+
+        System.out.println(cart.getPrice(2011,1) + " get price");
+        System.out.println(cart.getInflation(2010,1,2014,3));
     }
 
 
