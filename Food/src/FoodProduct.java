@@ -294,19 +294,19 @@ public class FoodProduct extends Product {
         for (Map.Entry<String, Double[]> entry : priceMap.entrySet()) {
             int startYear = 2010;
             int startMonth = 1;
-            int index = 0;
-
             amountOfProvinces++;
             if (ultimateRightRange) {
-                while (!(startMonth == month && startYear == year)) {
-                    index++;
+                for (int i = 0; i < entry.getValue().length; i++) {
+                    if (startMonth == month && startYear == year) {
+                        result += entry.getValue()[i];
+                        break;
+                    }
                     startMonth++;
                     if (startMonth > 12) {
                         startMonth = 1;
                         startYear++;
                     }
                 }
-                result = result + entry.getValue()[index];
             }
         }
 

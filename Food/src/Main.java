@@ -24,7 +24,7 @@ public class Main {
         //beetRoot.getPriceMap().forEach((key, value) -> System.out.println(key + " : " + Arrays.toString(value)));
         double toShow = beetRoot.getPrice(2011,1, "ŚLĄSKIE");
         System.out.println(toShow + " new price");
-        double toShowAverage = beetRoot.getPrice(2010, 1);
+        double toShowAverage = beetRoot.getPrice(2022, 3);
         System.out.println(toShowAverage + " new price average");
     }
 
